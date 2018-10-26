@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+mapFile = open("map_file")
+storageLine=""
+for mapLine in mapFile:
+	storageLine = storageLine + "[" + mapLine.rstrip() + "]"
+mapFile.closed
+print("<script>")
+print("localStorage.setItem('map','"+storageLine+"')");
+print("</script>")
+
