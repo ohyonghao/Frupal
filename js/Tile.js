@@ -40,3 +40,10 @@ class Tile {
     }
 }
 
+// Constants for Tile terrain types in the _Terrain property
+Tile.TerrainMeadow = 0;
+Tile.TerrainForest = 1;
+Tile.TerrainWater = 2;
+Tile.TerrainWall = 3;
+Tile.TerrainBog = 4;
+Tile.TerrainSwamp = 5;
