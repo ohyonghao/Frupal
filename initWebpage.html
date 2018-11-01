@@ -1,34 +1,50 @@
 <html>
 <title> A-Team Frupal </title>
 <head>
-<script src="js/CharModel.js"></script>
-<script src="js/Controller.js"></script>
+  <meta charset="UTF-8">
+  <script src="js/CharModel.js"></script>
+  <script src="js/Controller.js"></script>
+  <script src="js/FrupalModel.js"></script>
+  <!-- script src="js/mapModel.js"></script -->
+  <!-- script src="js/MapView.js"></script -->
+  <script src="js/ModelBuilder.js"></script>
+  <script src="js/StatView.js"></script>
+  <script src="js/Tile.js"></script>
 <script>
 
-let controller = new Controller( new CharModel( 12, 12, 2, 1000) );
+    // Declare our main global controller object. Since it is in the scope of the web page,
+    // it will not be deleted by garbage collection. It also contains references to all of
+    // the main model and view objects, so they don't get deleted.
+    let theController = null;
+    let theModel = null;
 
-function north(){
-  controller.moveNorth();
-}
+    function onLoad() {
+        theController = new Controller();
+        theModel = theController.initializeModelAndViews();
+    }
 
-function south(){
-  controller.moveSouth();
-}
+    function north(){
+        theController.moveNorth();
+    }
 
-function east(){
-  controller.moveEast();
-}
+    function south(){
+        theController.moveSouth();
+    }
 
-function west(){
-  controller.moveWest();
-}
+    function east(){
+        theController.moveEast();
+    }
+
+    function west(){
+        theController.moveWest();
+    }
 </script>
 </head>
 
 <head>
 <link rel ="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="onLoad();">
   <div class="container">
     <h1> FRUPAL - the game... </h1>
     <p>
@@ -43,6 +59,8 @@ function west(){
       <div class="form-row">
         <input type="button" value="SOUTH" onClick="south()">
       </div>
+      <div id="stats-x-pos"></div>
+      <div id="stats-y-pos"></div>
     </form>
   </div>
 <!-- <script type="text/javascript" src='scripts.js'></script> -->
