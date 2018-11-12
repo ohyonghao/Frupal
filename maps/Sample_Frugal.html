@@ -4,12 +4,16 @@
         <script src='../js/Tile.js'></script>
         <script src='../js/FrupalModel.js'></script>
 <script>
+    function chkCorruptFile() {
+        return 1
+    }
     function buildModel() {
         var model = new FrupalModel;
         model.mapmodel.name = 'Sample Frupal Game Map';
         model.mapmodel.mapSize = 25;
 
-        model.charModel = new CharModel(12,12, 103, 1000, 1);
+        model.charModel = new CharModel(12,12, 103, 1000);
+        model.charModel.visrange = 1
         model.charModel.inventory.push('Axe');
         model.charModel.inventory.push('Axe');
         model.charModel.inventory.push('Shears');
@@ -23,6 +27,11 @@
         localStorage.clear();
         localStorage.setItem('map', JSON.stringify(model));
     }
-    buildModel();
+    var chkCorr = chkCorruptFile();
+    if(eval(chkCorr) == -1) {
+        alert('Your map file has corrupted contents');
+    } else if(eval(chkCorr) == 1) {
+        buildModel();
+    }
 </script></head>
 <body></body></html>

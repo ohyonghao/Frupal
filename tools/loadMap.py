@@ -35,6 +35,7 @@ def loadCharacter( line ):
         print(", " + line, end="" );
     elif loadCharacter.counter == 2:
         print(", " + line + ");");
+        print("        model.charModel.visrange = 1");
     else:
         print("        model.charModel.inventory.push('" + line +"');");
 		
