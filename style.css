@@ -129,13 +129,13 @@ table {
 
 .inv-value-column {
     text-align: center;
-    float: left;
+    float: center;
     width: 30%;
 }
 
 .inv-count-column {
     text-align: center;
-    float: left;
+    float: right;
     width: 25%
 }
 
